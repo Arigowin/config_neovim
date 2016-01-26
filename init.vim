@@ -93,10 +93,14 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'fatih/vim-go'
+Plug 'luochen1990/rainbow'
 
 " fast editing
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
+
+" 42 header
+so /usr/share/vim/vim73/plugin/stdheader.vim
 
 call plug#end()
 " }}}
@@ -317,4 +321,8 @@ augroup vimrcEx " {
     " }}}
 
 augroup END " }
+" }}}
+
+" rainbow {{{
+let g:rainbow_active = 1
 " }}}
