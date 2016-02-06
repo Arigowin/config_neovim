@@ -89,7 +89,8 @@ Plug 'vim-scripts/OmniCppComplete'
 " ide like
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'benekastah/neomake'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'fatih/vim-go'
@@ -270,6 +271,11 @@ let g:neomake_go_gobuild_maker = {
         \ '%-G#%.%#'
     \ }
 " }}}2
+
+" C includes {{{2
+" let g:neomake_c_include_dirs=[ '.', './includes', '../includes', './libft/includes' , '../libft/includes' ]
+" }}}2
+
 "}}}1
 
 " vim-cpp-enhanced-highlight {{{
