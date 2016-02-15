@@ -88,7 +88,8 @@ Plug 'vim-scripts/OmniCppComplete'
 
 " ide like
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'benekastah/neomake'
+" Plug 'benekastah/neomake'
+Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -256,21 +257,32 @@ if has('conceal')
 endif
 "}}}
 
-" neomake {{{1
-autocmd! BufWritePost,BufEnter * Neomake " activate syntax checker on save
+" Syntastic {{{
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol='★'
+let g:syntastic_style_error_symbol='>'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_warning_symbol='>'
+let g:syntastic_c_include_dirs=[ '.', './includes', '../includes', './libft/includes' , '../libft/includes' ]
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
+" }}}
 
-" go maker {{{2
-let g:neomake_go_gobuild_maker = {
-    \ 'exe': 'sh',
-    \ 'args': ['-c', 'go build -o ' . neomake#utils#DevNull() . ' ./\$0', '%:h'],
-    \ 'errorformat':
-        \ '%W%f:%l: warning: %m,' .
-        \ '%E%f:%l:%c:%m,' .
-        \ '%E%f:%l:%m,' .
-        \ '%C%\s%\+%m,' .
-        \ '%-G#%.%#'
-    \ }
-" }}}2
+"" neomake {{{1
+"autocmd! BufWritePost,BufEnter * Neomake " activate syntax checker on save
+"
+"" go maker {{{2
+"let g:neomake_go_gobuild_maker = {
+"    \ 'exe': 'sh',
+"    \ 'args': ['-c', 'go build -o ' . neomake#utils#DevNull() . ' ./\$0', '%:h'],
+"    \ 'errorformat':
+"        \ '%W%f:%l: warning: %m,' .
+"        \ '%E%f:%l:%c:%m,' .
+"        \ '%E%f:%l:%m,' .
+"        \ '%C%\s%\+%m,' .
+"        \ '%-G#%.%#'
+"    \ }
+"" }}}2
 
 " C includes {{{2
 " let g:neomake_c_include_dirs=[ '.', './includes', '../includes', './libft/includes' , '../libft/includes' ]
